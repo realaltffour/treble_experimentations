@@ -15,7 +15,7 @@ jobs:
 
     - name: Dep install
       run: |
-        sudo apt install phablet-tools
+        sudo apt install repo
         git config --global user.name "buildbot"
         git config --global user.email "buildbot@phh.me"
     - name: Build
