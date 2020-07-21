@@ -15,9 +15,9 @@ jobs:
 
     - name: Dep install
       run: |
-       apt install phablet-tools
-         git config --global user.name "buildbot"
-         git config --global user.email "buildbot@phh.me"
+        sudo apt install phablet-tools
+        git config --global user.name "buildbot"
+        git config --global user.email "buildbot@phh.me"
     - name: Build
       run: |
         bash build-dakkar.sh graphene10 arm64-ab-vanilla-nosu-user
