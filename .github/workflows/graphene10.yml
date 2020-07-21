@@ -32,4 +32,4 @@ jobs:
       shell: bash
       run: |
         export PATH="${HOME}/.bin:${PATH}"
-        ./build-dakkar.sh graphene10 arm64-ab-vanilla-nosu-user
+        ./build-dakkar.sh aosp10 arm64-ab-vanilla-nosu-user
