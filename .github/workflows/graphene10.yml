@@ -15,6 +15,7 @@ jobs:
 
     - name: Dep install
       run: |
+        sudo df -h
         sudo dpkg --add-architecture i386
         sudo apt update && sudo apt install -y build-essential imagemagick xorriso locales openjdk-8-jdk python git m4 unzip bison zip gperf libxml2-utils zlib1g:i386 libstdc++6:i386 bc curl lzop lzip lunzip jq wget squashfs-tools
         sudo apt install python3
