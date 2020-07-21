@@ -13,15 +13,42 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: Dep install
+      run: |
+         dpkg --add-architecture i386
+         apt-get update && apt-get install -y \
+	          build-essential \
+            imagemagick \
+	          xorriso \
+	          locales \
+	          openjdk-8-jdk \
+	          python \
+	          git \
+	          m4 \
+	          unzip \
+	          bison \
+	          zip \
+	          gperf \
+	          libxml2-utils \
+	          zlib1g:i386 \
+	          libstdc++6:i386 \
+	          bc \
+	          curl \
+	          lzop \
+	          lzip \
+	          lunzip \
+	          jq \
+	          wget \
+	          squashfs-tools \
+	          sudo ; \
+	          apt-get clean autoclean
+            ln -s /usr/bin/xorrisofs /usr/bin/mkisofs
+            locale-gen en_US.UTF-8
+            dpkg-reconfigure locales
+            curl https://storage.googleapis.com/git-repo-downloads/repo > /usr/local/bin/repo
+            chmod a+x /usr/local/bin/repo
+            git config --global user.name "buildbot"
+            git config --global user.email "buildbot@phh.me"
     - name: Build
       run: |
-        docker build -t treble docker/
-        docker container create --name treble treble
-    - name: Docker
-      run: |
-        docker run \
-            -v $(pwd):/treble \
-            -w /treble_output \
-            treble \
-            /bin/bash /treble/build-dakkar.sh graphene10 \
-            arm64-ab-vanilla-nosu-user
+        bash build-dakkar.sh graphene10 arm64-ab-vanilla-nosu-user
