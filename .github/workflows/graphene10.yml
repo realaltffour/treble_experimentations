@@ -15,11 +15,9 @@ jobs:
 
     - name: Dep install
       run: |
-         curl https://storage.googleapis.com/git-repo-downloads/repo > repo
-         chmod a+x repo
+       apt install phablet-tools
          git config --global user.name "buildbot"
          git config --global user.email "buildbot@phh.me"
     - name: Build
       run: |
-        export PATH=$(pwd):$PATH
         bash build-dakkar.sh graphene10 arm64-ab-vanilla-nosu-user
