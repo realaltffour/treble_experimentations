@@ -15,10 +15,15 @@ jobs:
 
     - name: Dep install
       run: |
+        sudo dpkg --add-architecture i386
+        sudo apt update && sudo apt install -y build-essential imagemagick xorriso locales openjdk-8-jdk python git m4 unzip bison zip gperf libxml2-utils zlib1g:i386 libstdc++6:i386 bc curl lzop lzip lunzip jq wget squashfs-tools
+        sudo ln -s /usr/bin/xorrisofs /usr/bin/mkisofs
+        sudo locale-gen en_US.UTF-8
+        sudo dpkg-reconfigure locales
         sudo apt install repo
-        git config --global user.name "buildbot"
-        git config --global user.email "buildbot@phh.me"
-        chmod +x build-dakkar.sh
+        sudo git config --global user.name "buildbot"
+        sudo git config --global user.email "buildbot@phh.me"
+        sudo chmod +x build-dakkar.sh
     - name: Build
       shell: bash
-      run: ./build-dakkar.sh graphene10 arm64-ab-vanilla-nosu-user
+      run: sudo ./build-dakkar.sh graphene10 arm64-ab-vanilla-nosu-user
