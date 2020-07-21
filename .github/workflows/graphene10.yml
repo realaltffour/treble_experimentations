@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Build
+      run: |
+        docker build -t treble docker/
+        docker container create --name treble treble
+        
+        docker run -ti \
+            -v $(pwd):/treble \
+            -v $(pwd)/../treble_output:/treble_output \
+            -w /treble_output \
+            treble \
+            /bin/bash /treble/build-dakkar.sh graphene10 \
+            arm64-ab-vanilla-nosu-user
