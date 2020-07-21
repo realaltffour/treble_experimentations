@@ -12,7 +12,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-
+    - name: Clean up Space
+      run: |
+        sudo apt remove -y ansible azure-cli azure-devops aws-cli swift firefox google-chrome cabal-install gfortan-8 gfortan-9 google-cloud-sdk
     - name: Dep install
       run: |
         sudo df -h
