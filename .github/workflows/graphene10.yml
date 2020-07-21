@@ -21,4 +21,4 @@ jobs:
     - name: Build
       run: |
         ls
-        sudo ./build-dakkar.sh graphene10 arm64-ab-vanilla-nosu-user
+        ./build-dakkar.sh graphene10 arm64-ab-vanilla-nosu-user
