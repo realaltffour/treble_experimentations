@@ -30,4 +30,6 @@ jobs:
         sudo chmod +x build-dakkar.sh
     - name: Build
       shell: bash
-      run: sudo ./build-dakkar.sh graphene10 arm64-ab-vanilla-nosu-user
+      run: |
+        export PATH="${HOME}/.bin:${PATH}"
+        sudo ./build-dakkar.sh graphene10 arm64-ab-vanilla-nosu-user
