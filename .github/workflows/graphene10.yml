@@ -18,5 +18,6 @@ jobs:
         sudo apt install repo
         git config --global user.name "buildbot"
         git config --global user.email "buildbot@phh.me"
+        chmod +x build-dakkar.sh
     - name: Build
       run: ./build-dakkar.sh graphene10 arm64-ab-vanilla-nosu-user
