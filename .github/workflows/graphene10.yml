@@ -21,5 +21,4 @@ jobs:
         chmod +x build-dakkar.sh
     - name: Build
       shell: bash
-      run: | 
-        ./build-dakkar.sh
+      run: ./build-dakkar.sh graphene10 arm64-ab-vanilla-nosu-user
