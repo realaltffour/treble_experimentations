@@ -15,8 +15,6 @@ jobs:
 
     - name: Dep install
       run: |
-         locale-gen en_US.UTF-8
-         dpkg-reconfigure locales
          curl https://storage.googleapis.com/git-repo-downloads/repo > /usr/local/bin/repo
          chmod a+x /usr/local/bin/repo
          git config --global user.name "buildbot"
