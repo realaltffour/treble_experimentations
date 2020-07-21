@@ -18,7 +18,7 @@ jobs:
         docker build -t treble docker/
     - name: Docker
       run: |
-        docker run -ti \
+        docker run \
             -v $(pwd):/treble \
             -v $(pwd)/../treble_output:/treble_output \
             -w /treble_output \
