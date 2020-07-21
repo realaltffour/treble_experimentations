@@ -20,8 +20,7 @@ jobs:
         sudo ln -s /usr/bin/xorrisofs /usr/bin/mkisofs
         sudo locale-gen en_US.UTF-8
         sudo dpkg-reconfigure locales
-        sudo curl https://storage.googleapis.com/git-repo-downloads/repo > /usr/local/bin/repo
-        sudo chmod a+x /usr/local/bin/repo
+        sudo apt install repo
         sudo git config --global user.name "buildbot"
         sudo git config --global user.email "buildbot@phh.me"
         sudo chmod +x build-dakkar.sh
