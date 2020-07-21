@@ -16,6 +16,7 @@ jobs:
     - name: Build
       run: |
         docker build -t treble docker/
+        docker container create --name treble treble
     - name: Docker
       run: |
         docker run \
