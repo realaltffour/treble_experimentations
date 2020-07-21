@@ -18,10 +18,8 @@ jobs:
         docker build -t treble docker/
     - name: Docker
       run: |
-        mkdir treble_output;
         docker run \
             -v $(pwd):/treble \
-            -v $(pwd)/treble_output:/treble_output \
             -w /treble_output \
             treble \
             /bin/bash /treble/build-dakkar.sh graphene10 \
