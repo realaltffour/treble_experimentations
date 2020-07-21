@@ -20,4 +20,4 @@ jobs:
         git config --global user.email "buildbot@phh.me"
     - name: Build
       run: |
-        ./build-dakkar.sh graphene10 arm64-ab-vanilla-nosu-user
+        sudo ./build-dakkar.sh graphene10 arm64-ab-vanilla-nosu-user
