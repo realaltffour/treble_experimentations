@@ -368,7 +368,7 @@ function init_release() {
 }
 
 function init_main_repo() {
-    repo init -u "$mainrepo" -b "$mainbranch"
+    repo init --depth=1 -u "$mainrepo" -b "$mainbranch"
 }
 
 function clone_or_checkout() {
